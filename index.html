@@ -13,6 +13,10 @@
 
       <style type="text/css">
          :root {
+            --base-font-size: 18px;
+            --base-font-weight: 400;
+            --base-font-family: "Roboto", Helvetica, sans-serif;
+
             --background-dark: rgb(33, 33, 33);
             --page-background-color: rgb(197, 197, 197);
             --shadow-color: rgb(128, 128, 128);
@@ -20,7 +24,27 @@
             --light-text-color: rgb(255, 255, 255);
             --arrow-down-color: var(--page-background-color);
 
+            --header-navbar-height: 85px;
+            --header-navbar-item-padding: 1em;
+            --header-navbar-item-hover-shadow: 1px 1px 5px var(--shadow-color);
+            --header-navbar-item-hover-background-image: url('img/blood_spatter_background.png');
+
+            --content-section-min-height: 2000px;
+
             --background-container-height: 1000px;
+            --background-container-item-gap: 10px;
+            --background-container-background-image: url('img/cemetery_background.jpg');
+
+            --background-request-quote-button-margin-top: 100px;
+            --background-request-quote-button-width: 200px;
+            --background-request-quote-button-vertical-padding: 15px;
+            --background-request-quote-button-border-radius: 25px;
+            --background-request-quote-button-opacity: 0.85;
+            --background-request-quote-button-background-color: rgba(189, 141, 141, 0.75);
+            --background-request-quote-button-background-color-hover: rgba(192, 0, 0, 0.5);
+
+            --background-arrow-down-margin-top: 20px;
+            --background-arrow-down-font-size: 50px;
 
             --section-header-background-color: rgb(0,0,0);
             --section-header-heading-text-color: var(--light-text-color);
@@ -32,26 +56,25 @@
 
             --services-section-description-color: var(--section-header-heading-text-color);
             --services-section-description-header-font-size: 30px;
+
+            --footer-height: 150px;
          }
          body {
             margin: 0;
-            font-family: "Roboto", Helvetica, sans-serif;
-            font-weight: 400;
+            font-size: var(--base-font-size);
+            font-family: var(--base-font-family);
+            font-weight: var(--base-font-weight);
             background-color: var(--page-background-color);
          }
 
          header {
             /*background-color: var(--background-dark);*/
             width: 100%;
-            height: 85px;
+            height: var(--header-navbar-height);
 
             position: fixed;
             top: 0;
             left: 0;
-         }
-         header.shadow {
-            /* box-shadow: 0px 5px 10px 0px #BE82CC; */
-            /* box-shadow: 0px 5px 10px 0px var(--shadow-color); */
          }
          #header-box {
             height: 100%;
@@ -70,24 +93,24 @@
             a {
                text-decoration: none;
                display: block;
-               padding: 1em;
+               padding: var(--header-navbar-item-padding);
                color: var(--light-text-color);
                font-weight: var(--font-weight-bold-ish); /* bold-ish */
             }
             a:hover {
                /* border-bottom: 5px solid rgb(192, 0, 0); */
-               background-image: url('img/blood_spatter_background.png');
+               background-image: var(--header-navbar-item-hover-background-image);
                background-position: center;
                background-repeat: no-repeat;
-               text-shadow: 1px 1px 5px var(--shadow-color);
+               text-shadow: var(--header-navbar-item-hover-shadow);
             }
          }
 
          #content {
-            min-height: 2000px;
+            min-height: var(--content-section-min-height);
          }
          #background {
-            background-image: url('img/cemetery_background.jpg');
+            background-image: var(--background-container-background-image);
 
             background-attachment: fixed;
 
@@ -104,34 +127,33 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: var(--background-container-item-gap);
          }
          #background-request-quote {
-            margin-top: 100px;
+            margin-top: var(--background-request-quote-button-margin-top);
 
             a.request-quote-btn {
-               width: 200px;
-               padding-top: 15px;
-               padding-bottom: 15px;
-               border-radius: 25px;
+               width: var(--background-request-quote-button-width);
+               padding: var(--background-request-quote-button-vertical-padding) 0;
+               border-radius: var(--background-request-quote-button-border-radius);
                display: inline-block;
                text-align: center;
                text-decoration: none;
                text-transform: uppercase;
                font-weight: var(--font-weight-bold-ish);
                color: var(--light-text-color);
-               background-color: rgba(189, 141, 141, 0.75);
-               opacity: 0.85;
+               background-color: var(--background-request-quote-button-background-color);
+               opacity: var(--background-request-quote-button-opacity);
             }
             a.request-quote-btn:hover {
-               background-color: rgba(192, 0, 0, 0.5);
+               background-color: var(--background-request-quote-button-background-color-hover);
             }
          }
          #background-arrow-down {
-            margin-top: 20px;
+            margin-top: var(--background-arrow-down-margin-top);
             a {
                display: inline-block;
-               font-size: 50px;
+               font-size: var(--background-arrow-down-font-size);
                color: var(--arrow-down-color);
             }
             a:hover {
@@ -185,7 +207,7 @@
          footer {
             background-color: var(--background-dark);
             width: 100%;
-            height: 150px;
+            height: var(--footer-height);
          }
          #footer-box {
             height: 100%;
@@ -193,7 +215,7 @@
       </style>
    </head>
    <body>
-      <header class="shadow">
+      <header>
          <div id="header-box">
             <ul id="navigation">
                <li><a href="#services">Services</a></li>
