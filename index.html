@@ -136,12 +136,22 @@
                transform: scale(0.9);
             }
          }
-         .content-container .header {
-            text-align: center;
+         .content-container {
+            .header {
+               text-align: center;
+               background-color: var(--background-dark);
+               color: var(--light-text-color);
+            }
+            .header h2 {
+               padding: 20px 0;
+               margin: 0;
+               font-size: 50px;
+            }
          }
          #services {
             .row {
                display: flex;
+               flex-direction: row-reverse;
 
                .image {
 
@@ -149,6 +159,9 @@
                .description {
 
                }
+            }
+            .row:nth-child(even) {
+               flex-direction: row;
             }
          }
 
