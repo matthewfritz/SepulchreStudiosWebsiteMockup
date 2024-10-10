@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Sepulchre Studios - Mockup</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css" integrity="sha512-B46MVOJpI6RBsdcU307elYeStF2JKT87SsHZfRSkjVi4/iZ3912zXi45X5/CBr/GbCyLx6M1GQtTKYRd52Jxgw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/regular.min.css" integrity="sha512-j+P0XpTXw+hDTK64xqC/cjv62cf629/IR4/0bokmich7J8XdVlWT40+1M/Z58rCQ4F+3QoJIfzh6Ui6TTIP6WQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/fontawesome.min.js" integrity="sha512-NeFv3hB6XGV+0y96NVxoWIkhrs1eC3KXBJ9OJiTFktvbzJ/0Kk7Rmm9hJ2/c2wJjy6wG0a0lIgehHjCTDLRwWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/regular.min.js" integrity="sha512-kOmvRi+0imoekwslOzP/X1LXQnzcttzqYYt3urKD4nhd5fMYwRfXgDS5Nh7b7pQjKPjBPSX9PmhCLrkfkxUcBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <style type="text/css">
+         :root {
+            --background-dark: rgb(46, 46, 46);
+            --page-background-color: rgb(197, 197, 197);
+            --shadow-color: rgb(128, 128, 128);
+            --font-weight-bold-ish: 500;
+            --light-text-color: rgb(255, 255, 255);
+            --arrow-down-color: var(--page-background-color);
+         }
+         body {
+            margin: 0;
+            font-family: "Roboto", Helvetica, sans-serif;
+            font-weight: 400;
+            background-color: var(--page-background-color);
+         }
+
+         header {
+            /*background-color: var(--background-dark);*/
+            width: 100%;
+            height: 85px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+         }
+         header.shadow {
+            /* box-shadow: 0px 5px 10px 0px #BE82CC; */
+            /* box-shadow: 0px 5px 10px 0px var(--shadow-color); */
+         }
+         #header-box {
+            height: 100%;
+         }
+         ul#navigation {
+            display: flex;
+            flex-flow: row wrap;
+            /* This aligns items to the end line on main-axis */
+            justify-content: flex-end;
+
+            list-style: none;
+            margin: 0;
+            height: 100%;
+            align-items: center;
+
+            a {
+               text-decoration: none;
+               display: block;
+               padding: 1em;
+               color: var(--light-text-color);
+               font-weight: var(--font-weight-bold-ish); /* bold-ish */
+            }
+            a:hover {
+               /* border-bottom: 5px solid rgb(192, 0, 0); */
+               background-image: url('img/blood_spatter_background.png');
+               background-position: center;
+               background-repeat: no-repeat;
+               text-shadow: 1px 1px 5px var(--shadow-color);
+            }
+         }
+
+         #content {
+            min-height: 2000px;
+         }
+         #background {
+            background-image: url('img/cemetery_background.jpg');
+
+            background-attachment: fixed;
+
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            width: 100%;
+            height: 850px;
+
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+         }
+         #background-request-quote {
+            margin-top: 100px;
+
+            a.request-quote-btn {
+               width: 200px;
+               padding-top: 15px;
+               padding-bottom: 15px;
+               border-radius: 25px;
+               display: inline-block;
+               text-align: center;
+               text-decoration: none;
+               text-transform: uppercase;
+               font-weight: var(--font-weight-bold-ish);
+               color: var(--light-text-color);
+               background-color: rgba(189, 141, 141, 0.75);
+               opacity: 0.85;
+            }
+            a.request-quote-btn:hover {
+               background-color: rgba(192, 0, 0, 0.5);
+            }
+         }
+         #background-arrow-down {
+            margin-top: 20px;
+            a {
+               display: inline-block;
+               font-size: 50px;
+               color: var(--arrow-down-color);
+            }
+            a:hover {
+               animation-name: pulse;
+               animation-duration: 1s;
+               animation-timing-function: linear;
+               animation-iteration-count: infinite;
+            }
+         }
+         @keyframes pulse {
+            25% {
+               transform: scale(1.1);
+            }
+            75% {
+               transform: scale(0.9);
+            }
+         }
+
+         footer {
+            background-color: var(--background-dark);
+            width: 100%;
+            height: 150px;
+         }
+         #footer-box {
+            height: 100%;
+         }
+      </style>
+   </head>
+   <body>
+      <header class="shadow">
+         <div id="header-box">
+            <ul id="navigation">
+               <li><a href="#">Services</a></li>
+               <li><a href="#">Audio Samples</a></li>
+               <li><a href="#">About</a></li>
+               <li><a href="#">Request a Quote</a></li>
+            </ul>
+         </div>
+      </header>
+      <section id="content">
+         <div id="background">
+            <div id="background-image">
+               <img src="img/sepulchre_studios_logo.png" alt="Sepulchre Studios" />
+            </div>
+            <div id="background-tagline">
+               <img src="img/sepulchre_studios_tagline.png" alt="Mixing | Mastering | Voice Overs | Sound Design" />
+            </div>
+            <div id="background-request-quote">
+               <a href="#" class="request-quote-btn">Request a Quote</a>
+            </div>
+            <div id="background-arrow-down">
+               <a href="#"><i class="fa-regular fa-circle-down"></i></a>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div id="footer-box">
+
+         </div>
+      </footer>
+   </body>
+</html>
