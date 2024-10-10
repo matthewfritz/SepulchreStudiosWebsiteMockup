@@ -1,3 +1,4 @@
+<!-- This is a quick-and-dirty mockup to test a design idea for the studio -->
 <!DOCTYPE html>
 <html>
    <head>
@@ -135,6 +136,21 @@
                transform: scale(0.9);
             }
          }
+         .content-container .header {
+            text-align: center;
+         }
+         #services {
+            .row {
+               display: flex;
+
+               .image {
+
+               }
+               .description {
+
+               }
+            }
+         }
 
          footer {
             background-color: var(--background-dark);
@@ -150,10 +166,10 @@
       <header class="shadow">
          <div id="header-box">
             <ul id="navigation">
-               <li><a href="#">Services</a></li>
-               <li><a href="#">Audio Samples</a></li>
-               <li><a href="#">About</a></li>
-               <li><a href="#">Request a Quote</a></li>
+               <li><a href="#services">Services</a></li>
+               <li><a href="#audio-samples">Audio Samples</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#request-quote">Request a Quote</a></li>
             </ul>
          </div>
       </header>
@@ -166,10 +182,46 @@
                <img src="img/sepulchre_studios_tagline.png" alt="Mixing | Mastering | Voice Overs | Sound Design" />
             </div>
             <div id="background-request-quote">
-               <a href="#" class="request-quote-btn">Request a Quote</a>
+               <a href="#request-quote" class="request-quote-btn">Request a Quote</a>
             </div>
             <div id="background-arrow-down">
-               <a href="#"><i class="fa-regular fa-circle-down"></i></a>
+               <a href="#services"><i class="fa-regular fa-circle-down"></i></a>
+            </div>
+         </div>
+         <div id="services" class="content-container">
+            <div class="header">
+               <h2>Services</h2>
+            </div>
+            <div class="row">
+               <div class="image">
+                  <img src="img/image_mixing_mastering.jpg" alt="Photo of outboard gear" />
+               </div>
+               <div class="description">
+                  <h3>Mixing &amp; Mastering</h3>
+               </div>
+            </div>
+            <div class="row">
+               <div class="image">
+                  <img src="img/image_voiceovers.jpg" alt="Photo of microphone on a stand" />
+               </div>
+               <div class="description">
+                  <h3>Voiceovers</h3>
+               </div>
+            </div>
+         </div>
+         <div id="audio-samples" class="content-container">
+            <div class="header">
+               <h2>Audio Samples</h2>
+            </div>
+         </div>
+         <div id="about" class="content-container">
+            <div class="header">
+               <h2>About</h2>
+            </div>
+         </div>
+         <div id="request-quote" class="content-container">
+            <div class="header">
+               <h2>Request a Quote</h2>
             </div>
          </div>
       </section>
