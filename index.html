@@ -48,6 +48,12 @@
             --background-arrow-down-color: var(--arrow-down-color);
             --background-arrow-down-color-light: rgb(255, 255, 255);
 
+            --pulse-animation-duration: 1s;
+            --pulse-animation-scale-up: 1.1;
+            --pulse-animation-scale-down: 0.9;
+            --pulse-animation-color-up: var(--background-arrow-down-color-light);
+            --pulse-animation-color-down: var(--background-arrow-down-color);
+
             --section-header-background-color: rgb(0,0,0);
             --section-header-heading-text-color: var(--light-text-color);
             --section-header-heading-font-size: 50px;
@@ -160,19 +166,19 @@
             }
             a:hover {
                animation-name: pulse;
-               animation-duration: 1s;
+               animation-duration: var(--pulse-animation-duration);
                animation-timing-function: linear;
                animation-iteration-count: infinite;
             }
          }
          @keyframes pulse {
             25% {
-               transform: scale(1.1);
-               color: var(--background-arrow-down-color-light);
+               transform: scale(var(--pulse-animation-scale-up));
+               color: var(--pulse-animation-color-up);
             }
             75% {
-               transform: scale(0.9);
-               color: var(--background-arrow-down-color);
+               transform: scale(var(--pulse-animation-scale-down));
+               color: var(--pulse-animation-color-down);
             }
          }
          .content-container {
