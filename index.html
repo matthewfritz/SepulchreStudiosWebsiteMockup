@@ -200,7 +200,11 @@
                flex-direction: row-reverse;
 
                .image {
-
+                  img {
+                     /* the images will actually be scaled down and use a sourcemap in the final version instead */
+                     width: 300px;
+                     height: 200px;
+                  }
                }
                .description {
                   color: var(--services-section-description-color);
@@ -268,6 +272,14 @@
                </div>
                <div class="description">
                   <h3>Voice Work</h3>
+               </div>
+            </div>
+            <div class="row">
+               <div class="image">
+                  <img src="img/image_sound_design.jpg" alt="Photo of MIDI keyboard with knobs and pads" />
+               </div>
+               <div class="description">
+                  <h3>Sound Design</h3>
                </div>
             </div>
          </div>
