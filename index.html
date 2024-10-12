@@ -54,6 +54,8 @@
             --pulse-animation-color-up: var(--background-arrow-down-color-light);
             --pulse-animation-color-down: var(--background-arrow-down-color);
 
+            --desaturate-animation-duration: 0.5s;
+
             --section-header-background-color: rgb(0,0,0);
             --section-header-heading-text-color: var(--light-text-color);
             --section-header-heading-font-size: 50px;
@@ -186,6 +188,14 @@
                color: var(--pulse-animation-color-down);
             }
          }
+         @keyframes desaturate {
+            0% {
+               filter: saturate(1);
+            }
+            100% {
+               filter: saturate(0);
+            }
+         }
          .content-container {
             .header {
                text-align: center;
@@ -217,6 +227,13 @@
                      /* the images will actually be scaled down and use a sourcemap in the final version instead */
                      width: var(--services-section-services-container-item-width);
                      height: var(--services-section-services-container-item-height);
+                  }
+                  &:hover {
+                     filter: saturate(0);
+                     animation-name: desaturate;
+                     animation-duration: var(--desaturate-animation-duration);
+                     animation-timing-function: linear;
+                     animation-iteration-count: 1;
                   }
                }
                .description {
