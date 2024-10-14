@@ -90,6 +90,19 @@
             --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
 
             --footer-height: 200px;
+
+            --footer-box-height: 100%;
+            --footer-box-width: 100%;
+            --footer-box-parent-padding: 40px;
+
+            --footer-box-content-margin: 25px 0 0 0;
+            --footer-box-content-text-color: rgb(128,128,128);
+            --footer-box-content-text-color-hover: var(--page-foreground-color);
+            --footer-box-content-text-font-size: 0.9em;
+            --footer-box-content-text-font-size-smaller-item: 0.9em;
+            --footer-box-content-list-item-padding: 10px 0 0 0;
+            
+            --footer-box-logo-section-paragraph-margin-top: 10px;
          }
          body {
             margin: 0;
@@ -284,24 +297,91 @@
 
          footer {
             background-color: var(--background-dark);
-            width: 100%;
+            width: var(--footer-box-width);
             height: var(--footer-height);
          }
          #footer-box {
-            height: 100%;
-            width: 100%;
+            height: var(--footer-box-height);
+            width: var(--footer-box-width);
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
+            .footer-box-parent {
+               padding: var(--footer-box-parent-padding);
+               &:first-child {
+                  text-align: left;
+               }
+               &:last-child {
+                  text-align: right;
+               }
+               &.logo {
+                  padding: 0;
+                  & .content {
+                     margin: 0;
+                     p {
+                        margin-top: var(--footer-box-logo-section-paragraph-margin-top);
+                     }
+                  }
+               }
+            }
+            .header {
+               h3 {
+                  margin: 0;
+               }
+            }
+            .content {
+               color: var(--footer-box-content-text-color);
+               margin: var(--footer-box-content-margin);
+               font-size: var(--footer-box-content-text-font-size);
+               a {
+                  text-decoration: none;
+                  color: var(--footer-box-content-text-color);
+                  &:hover {
+                     color: var(--footer-box-content-text-color-hover);
+                  }
+               }
+               ul {
+                  list-style: none;
+                  padding: 0;
+                  li {
+                     padding: var(--footer-box-content-list-item-padding);
+                     font-size: var(--footer-box-content-text-font-size-smaller-item);
+                  }
+               }
+               .image {
+                  padding: 0;
+                  text-align: center;
+               }
+               p {
+                  margin: 0;
+                  font-size: var(--footer-box-content-text-font-size-smaller-item);
+               }
+            }
          }
 
          /* This will become unnecessary again when I switch the Services section back to Flexbox */
          .clearfix {
             clear: both;
          }
+
+         /* Accessibility: show elements only for screen readers but hide them for everything else to maintain the flow of the document */
+         /* Taken directly from Bootstrap */
+         .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+         }
       </style>
    </head>
    <body>
       <header>
+         <h1 class="sr-only">Sepulchre Studios</h1>
          <div id="header-box">
             <ul id="navigation">
                <li><a href="#services">Services</a></li>
@@ -314,7 +394,7 @@
       <section id="content">
          <div id="background">
             <div id="background-image">
-               <img src="img/sepulchre_studios_logo.png" alt="Sepulchre Studios" />
+               <img src="img/sepulchre_studios_logo.png" alt="Sepulchre Studios logo" />
             </div>
             <div id="background-tagline">
                <img src="img/sepulchre_studios_tagline.png" alt="Mixing | Mastering | Voice Overs | Sound Design" />
@@ -393,8 +473,38 @@
          </div>
       </section>
       <footer>
+         <h2 class="sr-only">Additional Information</h2>
          <div id="footer-box">
-
+            <div class="footer-box-parent">
+               <div class="header" id="additional-links">
+                  <h3>Additional Links</h3>
+               </div>
+               <div class="content">
+                  <ul>
+                     <li><a href="#">Privacy Policy</a></li>
+                     <li><a href="#">Disclaimer</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="footer-box-parent logo">
+               <div class="content">
+                  <div class="image">
+                     <img src="img/sepulchre_studios_logo_footer.png" alt="Sepulchre Studios footer logo" />
+                  </div>
+                  <p style="text-align: center">&copy; 2024 Sepulchre Studios LLC. All rights reserved.</p>
+               </div>
+            </div>
+            <div class="footer-box-parent">
+               <div class="header" id="contact">
+                  <h3>Contact</h3>
+               </div>
+               <div class="content">
+                  <ul>
+                     <li>Los Angeles, California</li>
+                     <li><a href="mailto:#">[email]@[domain]</a></li>
+                  </ul>
+               </div>
+            </div>
          </div>
       </footer>
    </body>
