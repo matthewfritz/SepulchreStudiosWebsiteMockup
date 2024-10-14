@@ -31,6 +31,8 @@
 
             --content-section-min-height: 2000px;
 
+            --content-container-default-min-height: 800px;
+
             --background-container-height: 1000px;
             --background-container-item-gap: 10px;
             --background-container-background-image: url('img/cemetery_background.jpg');
@@ -63,6 +65,7 @@
 
             --services-gradient-color-start: var(--section-header-background-color);
             --services-gradient-color-end: var(--background-dark);
+            --services-gradient-first-color-stop-distance: 20%;
 
             --services-section-description-color: var(--section-header-heading-text-color);
             --services-section-description-header-font-size: 30px;
@@ -71,6 +74,16 @@
             --services-section-services-container-item-height: 200px;
             --services-section-services-container-item-margin: 35px;
             --services-section-services-container-width: calc(var(--services-section-services-container-item-count) * (var(--services-section-services-container-item-width) + (2 * var(--services-section-services-container-item-margin))));
+
+            --audio-samples-background-color: var(--services-gradient-color-start);
+
+            --about-section-gradient-color-start: var(--services-gradient-color-start);
+            --about-section-gradient-color-end: var(--services-gradient-color-end);
+            --about-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
+
+            --request-quote-section-gradient-color-start: var(--background-dark);
+            --request-quote-section-gradient-color-end: rgb(239,239,239);
+            --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
 
             --footer-height: 150px;
          }
@@ -212,7 +225,7 @@
             padding: 70px 0;
          }
          #services {
-            background: linear-gradient(to bottom, var(--services-gradient-color-start) 20%, var(--services-gradient-color-end));
+            background: linear-gradient(to bottom, var(--services-gradient-color-start) var(--services-gradient-first-color-stop-distance), var(--services-gradient-color-end));
             .service-item-container {
                max-width: var(--services-section-services-container-width);
                margin-left: auto;
@@ -247,13 +260,18 @@
          }
 
          #audio-samples {
-            min-height: 800px;
-            background-color: var(--services-gradient-color-start);
+            min-height: var(--content-container-default-min-height);
+            background-color: var(--audio-samples-background-color);
          }
 
          #about {
-            min-height: 800px;
-            background: linear-gradient(to bottom, var(--services-gradient-color-start) 20%, var(--services-gradient-color-end));
+            min-height: var(--content-container-default-min-height);
+            background: linear-gradient(to bottom, var(--about-section-gradient-color-start) var(--about-section-gradient-first-color-stop-distance), var(--about-section-gradient-color-end));
+         }
+
+         #request-quote {
+            min-height: var(--content-container-default-min-height);
+            background: linear-gradient(to bottom, var(--request-quote-section-gradient-color-start) var(--request-quote-section-gradient-first-color-stop-distance), var(--request-quote-section-gradient-color-end));
          }
 
          footer {
