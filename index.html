@@ -18,16 +18,19 @@
             --base-font-family: "Roboto", Helvetica, sans-serif;
 
             --background-dark: rgb(33, 33, 33);
-            --page-background-color: rgb(197, 197, 197);
             --shadow-color: rgb(128, 128, 128);
             --font-weight-bold-ish: 500;
             --light-text-color: rgb(255, 255, 255);
             --arrow-down-color: var(--page-background-color);
 
+            --page-background-color: rgb(197, 197, 197);
+            --page-foreground-color: var(--light-text-color);
+
             --header-navbar-height: 85px;
             --header-navbar-item-padding: 1em;
             --header-navbar-item-hover-shadow: 1px 1px 5px var(--shadow-color);
             --header-navbar-item-hover-background-image: url('img/blood_spatter_background.png');
+            --header-navbar-item-color: var(--page-foreground-color);
 
             --content-section-min-height: 2000px;
 
@@ -44,6 +47,7 @@
             --background-request-quote-button-opacity: 0.85;
             --background-request-quote-button-background-color: rgba(189, 141, 141, 0.75);
             --background-request-quote-button-background-color-hover: rgba(192, 0, 0, 0.5);
+            --background-request-quote-button-color: var(--page-foreground-color);
 
             --background-arrow-down-margin-top: 20px;
             --background-arrow-down-font-size: 50px;
@@ -59,7 +63,7 @@
             --desaturate-animation-duration: 0.5s;
 
             --section-header-background-color: rgb(0,0,0);
-            --section-header-heading-text-color: var(--light-text-color);
+            --section-header-heading-text-color: var(--page-foreground-color);
             --section-header-heading-font-size: 50px;
             --section-header-heading-vertical-padding: 50px;
 
@@ -93,6 +97,7 @@
             font-family: var(--base-font-family);
             font-weight: var(--base-font-weight);
             background-color: var(--page-background-color);
+            color: var(--page-foreground-color);
          }
 
          header {
@@ -122,7 +127,7 @@
                text-decoration: none;
                display: block;
                padding: var(--header-navbar-item-padding);
-               color: var(--light-text-color);
+               color: var(--header-navbar-item-color);
                font-weight: var(--font-weight-bold-ish); /* bold-ish */
             }
             a:hover {
@@ -169,7 +174,7 @@
                text-decoration: none;
                text-transform: uppercase;
                font-weight: var(--font-weight-bold-ish);
-               color: var(--light-text-color);
+               color: var(--background-request-quote-button-color);
                background-color: var(--background-request-quote-button-background-color);
                opacity: var(--background-request-quote-button-opacity);
             }
@@ -284,6 +289,9 @@
          }
          #footer-box {
             height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
          }
 
          /* This will become unnecessary again when I switch the Services section back to Flexbox */
