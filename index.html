@@ -81,7 +81,7 @@
             --about-section-gradient-color-end: var(--services-gradient-color-end);
             --about-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
 
-            --request-quote-section-gradient-color-start: rgb(128,128,128); /*var(--background-dark);*/
+            --request-quote-section-gradient-color-start: rgb(128,128,128);
             --request-quote-section-gradient-color-end: rgb(239,239,239);
             --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
 
@@ -225,6 +225,7 @@
             padding: 70px 0;
          }
          #services {
+            background-color: var(--services-gradient-color-end);
             background: linear-gradient(to bottom, var(--services-gradient-color-start) var(--services-gradient-first-color-stop-distance), var(--services-gradient-color-end));
             .service-item-container {
                max-width: var(--services-section-services-container-width);
@@ -266,11 +267,13 @@
 
          #about {
             min-height: var(--content-container-default-min-height);
+            background-color: var(--about-section-gradient-color-end);
             background: linear-gradient(to bottom, var(--about-section-gradient-color-start) var(--about-section-gradient-first-color-stop-distance), var(--about-section-gradient-color-end));
          }
 
          #request-quote {
             min-height: var(--content-container-default-min-height);
+            background-color: var(--request-quote-section-gradient-color-end);
             background: linear-gradient(to bottom, var(--request-quote-section-gradient-color-start) var(--request-quote-section-gradient-first-color-stop-distance), var(--request-quote-section-gradient-color-end));
          }
 
@@ -283,6 +286,7 @@
             height: 100%;
          }
 
+         /* This will become unnecessary again when I switch the Services section back to Flexbox */
          .clearfix {
             clear: both;
          }
