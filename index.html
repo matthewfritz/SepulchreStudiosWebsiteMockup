@@ -54,6 +54,10 @@
             --background-arrow-down-color: var(--arrow-down-color);
             --background-arrow-down-color-light: rgb(255, 255, 255);
 
+            --background-fade-to-visible-animation-start-color: rgba(0, 0, 0, 0.0);
+            --background-fade-to-visible-animation-end-color: rgba(0, 0, 0, 0.8);
+            --background-fade-to-visible-animation-duration: 0.5s;
+
             --pulse-animation-duration: 1s;
             --pulse-animation-scale-up: 1.1;
             --pulse-animation-scale-down: 0.9;
@@ -101,7 +105,7 @@
             --footer-box-content-text-font-size: 0.9em;
             --footer-box-content-text-font-size-smaller-item: 0.9em;
             --footer-box-content-list-item-padding: 10px 0 0 0;
-            
+
             --footer-box-logo-section-paragraph-margin-top: 10px;
          }
          body {
@@ -121,6 +125,24 @@
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1000;
+
+            &.navbar-animation-fade-in {
+               background-color: var(--background-fade-to-visible-animation-end-color);
+
+               animation-name: background-fade-to-visible;
+               animation-duration: var(--background-fade-to-visible-animation-duration);
+               animation-timing-function: linear;
+               animation-iteration-count: 1;
+            }
+            &.navbar-animation-fade-out {
+               background-color: var(--background-fade-to-visible-animation-start-color);
+
+               animation-name: background-fade-out;
+               animation-duration: var(--background-fade-to-visible-animation-duration);
+               animation-timing-function: linear;
+               animation-iteration-count: 1;
+            }
          }
          #header-box {
             height: 100%;
@@ -144,7 +166,6 @@
                font-weight: var(--font-weight-bold-ish); /* bold-ish */
             }
             a:hover {
-               /* border-bottom: 5px solid rgb(192, 0, 0); */
                background-image: var(--header-navbar-item-hover-background-image);
                background-position: center;
                background-repeat: no-repeat;
@@ -207,6 +228,22 @@
                animation-duration: var(--pulse-animation-duration);
                animation-timing-function: linear;
                animation-iteration-count: infinite;
+            }
+         }
+         @keyframes background-fade-to-visible {
+            0% {
+               background-color: var(--background-fade-to-visible-animation-start-color);
+            }
+            75% {
+               background-color: var(--background-fade-to-visible-animation-end-color);
+            }
+         }
+         @keyframes background-fade-out {
+            0% {
+               background-color: var(--background-fade-to-visible-animation-end-color);
+            }
+            75% {
+               background-color: var(--background-fade-to-visible-animation-start-color);
             }
          }
          @keyframes pulse {
@@ -507,5 +544,25 @@
             </div>
          </div>
       </footer>
+      <script type="text/javascript">
+         // really simple fade-in/fade-out animation class modification on the navbar to detect scrolling
+         const navbarParent = document.querySelector("header");
+         const fadeInAnimationClass = 'navbar-animation-fade-in';
+         const fadeOutAnimationClass = 'navbar-animation-fade-out';
+         window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            if (scrollTop === 0) {
+               if (navbarParent.classList.contains(fadeInAnimationClass)) {
+                  navbarParent.classList.remove(fadeInAnimationClass);
+                  navbarParent.classList.add(fadeOutAnimationClass);
+               }
+            } else {
+               navbarParent.classList.remove(fadeOutAnimationClass);
+               if (!navbarParent.classList.contains(fadeInAnimationClass)) {
+                  navbarParent.classList.add(fadeInAnimationClass);
+               }
+            }
+         });
+      </script>
    </body>
 </html>
