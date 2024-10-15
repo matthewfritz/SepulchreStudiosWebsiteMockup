@@ -25,6 +25,7 @@
 
             --page-background-color: rgb(197, 197, 197);
             --page-foreground-color: var(--light-text-color);
+            --page-foreground-color-dark: var(--background-dark);
 
             --header-navbar-height: 85px;
             --header-navbar-item-padding: 1em;
@@ -92,6 +93,8 @@
             --request-quote-section-gradient-color-start: rgb(128,128,128);
             --request-quote-section-gradient-color-end: rgb(239,239,239);
             --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
+            --request-quote-section-text-color: var(--page-foreground-color-dark);
+            --request-quote-section-text-color-hover: var(--background-request-quote-button-background-color-hover);
 
             --footer-height: 200px;
 
@@ -330,6 +333,39 @@
             min-height: var(--content-container-default-min-height);
             background-color: var(--request-quote-section-gradient-color-end);
             background: linear-gradient(to bottom, var(--request-quote-section-gradient-color-start) var(--request-quote-section-gradient-first-color-stop-distance), var(--request-quote-section-gradient-color-end));
+            color: var(--request-quote-section-text-color);
+            a {
+               color: var(--request-quote-section-text-color);
+               text-decoration: none;
+               &:hover {
+                  color: var(--request-quote-section-text-color-hover);
+               }
+            }
+            p {
+               text-align: center;
+            }
+         }
+         #request-quote-form {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+
+            .form-input {
+               width: 600px;
+               margin-left: auto;
+               margin-right: auto;
+            }
+            .form-input-control {
+               input[type='text'], input[type='email'], textarea, select {
+                  width: 100%;
+               }
+               input[type='submit'] {
+                  margin-top: 20px;
+               }
+               textarea {
+                  height: 100px;
+               }
+            }
          }
 
          footer {
@@ -400,6 +436,10 @@
          /* This will become unnecessary again when I switch the Services section back to Flexbox */
          .clearfix {
             clear: both;
+         }
+
+         .center-text {
+            text-align: center;
          }
 
          /* Accessibility: show elements only for screen readers but hide them for everything else to maintain the flow of the document */
@@ -507,6 +547,58 @@
             <div class="header">
                <h2>Request a Quote</h2>
             </div>
+            <div class="content inner-content-container">
+               <div id="request-quote-form">
+                  <p>Please get in touch with us for <strong>Mixing &amp; Mastering</strong> price quotes using this form.</p>
+                  <p>For all other inquiries, including price quotes for other services, please email <a href="mailto:#">[email]@[domain]</a>.</p>
+                  <form action="#" method="POST" onSubmit="return requestQuoteSubmit();">
+                     <div class="form-input">
+                        <div class="form-input-label">
+                           <label for="contact-name">Name <span class="label-required">(required)</span></label>
+                        </div>
+                        <div class="form-input-control">
+                           <input type="text" id="contact-name" name="contact-name" />
+                        </div>
+                     </div>
+                     <div class="form-input">
+                        <div class="form-input-label">
+                           <label for="contact-email">Email <span class="label-required">(required)</span></label>
+                        </div>
+                        <div class="form-input-control">
+                           <input type="email" id="contact-email" name="contact-email" />
+                        </div>
+                     </div>
+                     <div class="form-input">
+                        <div class="form-input-label">
+                           <label for="contact-message">Message <span class="label-required">(required)</span></label>
+                        </div>
+                        <div class="form-input-control">
+                           <textarea id="contact-message" name="contact-message"></textarea>
+                        </div>
+                     </div>
+                     <div class="form-input">
+                        <div class="form-input-label">
+                           <label for="contact-service">Service <span class="label-required">(required)</span></label>
+                        </div>
+                        <div class="form-input-control">
+                           <select id="contact-service" name="contact-service">
+                              <option selected="selected" value="">-- select an option --</option>
+                              <option value="mixing">Mixing</option>
+                              <option value="mastering">Mastering</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="form-input">
+                        <div class="form-input-label">
+                           <label for="contact-submit" class="sr-only">Submit Quote Request</label>
+                        </div>
+                        <div class="form-input-control center-text">
+                           <input type="submit" id="contact-submit" name="contact-submit" value="Submit Quote Request" />
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
          </div>
       </section>
       <footer>
@@ -563,6 +655,11 @@
                }
             }
          });
+
+         function requestQuoteSubmit() {
+            // prevent the submit from happening since this is just a visual mock-up
+            return false;
+         }
       </script>
    </body>
 </html>
