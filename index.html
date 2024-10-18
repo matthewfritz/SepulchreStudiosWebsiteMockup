@@ -96,6 +96,8 @@
             --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
             --request-quote-section-text-color: var(--page-foreground-color-dark);
             --request-quote-section-text-color-hover: var(--page-foreground-color);
+            --request-quote-section-text-color-required: rgb(128,0,0);
+            --request-quote-section-font-size-required: 0.6em;
 
             --footer-height: 200px;
 
@@ -367,6 +369,11 @@
             }
             .form-input-label {
                padding-bottom: 10px;
+               .label-required {
+                  vertical-align: super;
+                  font-size: var(--request-quote-section-font-size-required);
+                  color: var(--request-quote-section-text-color-required);
+               }
             }
             .form-input-control {
                input[type='text'], input[type='email'], textarea, select {
