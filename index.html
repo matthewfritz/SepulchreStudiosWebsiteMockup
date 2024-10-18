@@ -360,16 +360,33 @@
                width: 600px;
                margin-left: auto;
                margin-right: auto;
+               margin-top: 20px;
+               &:first-child {
+                  margin-top: 0;
+               }
+            }
+            .form-input-label {
+               padding-bottom: 10px;
             }
             .form-input-control {
                input[type='text'], input[type='email'], textarea, select {
                   width: 100%;
+                  font-family: var(--base-font-family);
+                  padding: 5px;
+                  border-radius: 5px;
+                  border: 0;
+               }
+               input[type='text'], input[type='email'] {
+                  min-height: 25px;
                }
                input[type='submit'] {
                   margin-top: 20px;
                }
+               select {
+                  min-height: 35px;
+               }
                textarea {
-                  height: 100px;
+                  min-height: 100px;
                }
             }
          }
