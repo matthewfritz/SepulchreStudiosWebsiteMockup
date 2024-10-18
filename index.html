@@ -102,6 +102,12 @@
             --request-quote-section-text-color-required: rgb(128,0,0);
             --request-quote-section-font-size-required: 0.6em;
 
+            --request-quote-section-form-width: 800px;
+            --request-quote-section-form-input-width: 600px;
+            --request-quote-section-form-input-margin-top: 20px;
+            --request-quote-section-form-input-control-vertical-padding: 5px;
+            --request-quote-section-form-input-control-horizontal-padding: 10px;
+
             --footer-height: 200px;
 
             --footer-box-height: 100%;
@@ -353,7 +359,7 @@
             }
          }
          #request-quote-form {
-            width: 800px;
+            width: var(--request-quote-section-form-width);
             margin-left: auto;
             margin-right: auto;
             padding: 35px 0;
@@ -363,18 +369,18 @@
             }
 
             .form-input {
-               width: 600px;
+               width: var(--request-quote-section-form-input-width);
                margin-left: auto;
                margin-right: auto;
-               margin-top: 20px;
+               margin-top: var(--request-quote-section-form-input-margin-top);
                &:first-child, &:last-child {
                   margin-top: 0;
                }
             }
             .form-input-label {
-               padding-bottom: 10px;
+               padding-bottom: calc(var(--request-quote-section-form-input-control-vertical-padding) * 2);
                .label-required {
-                  vertical-align: super;
+                  margin-left: 4px;
                   font-size: var(--request-quote-section-font-size-required);
                   color: var(--request-quote-section-text-color-required);
                }
@@ -383,7 +389,7 @@
                input[type='text'], input[type='email'], textarea, select {
                   width: 100%;
                   font-family: var(--base-font-family);
-                  padding: 5px;
+                  padding: var(--request-quote-section-form-input-control-vertical-padding) var(--request-quote-section-form-input-control-horizontal-padding);
                   border-radius: 5px;
                   border: 0;
                   &:focus {
@@ -395,7 +401,7 @@
                   min-height: 25px;
                }
                input[type='submit'] {
-                  margin-top: 20px;
+                  margin-top: var(--request-quote-section-form-input-margin-top);
                   &.request-quote-btn {
                      border: none;
                      color: var(--background-request-quote-button-color);
@@ -408,7 +414,6 @@
                         border: inset var(--request-quote-button-border-size-active) black;
                         padding-top: var(--request-quote-button-vertical-padding-active);
                         padding-bottom: var(--request-quote-button-vertical-padding-active);
-                        /*outline: solid 3px var(--background-request-quote-button-background-color);*/
                         background-color: rgb(192,0,0);
                         box-shadow: none;
                      }
@@ -416,8 +421,10 @@
                }
                select {
                   min-height: 35px;
+                  width: calc(var(--request-quote-section-form-input-width) + (2 * var(--request-quote-section-form-input-control-horizontal-padding)));
                }
                textarea {
+                  padding: calc(var(--request-quote-section-form-input-control-vertical-padding) * 2) var(--request-quote-section-form-input-control-horizontal-padding);
                   min-height: 100px;
                }
             }
@@ -613,7 +620,7 @@
                               <label for="contact-name">Name <span class="label-required">(required)</span></label>
                            </div>
                            <div class="form-input-control">
-                              <input type="text" id="contact-name" name="contact-name" required />
+                              <input type="text" id="contact-name" name="contact-name" placeholder="First and Last Name" required />
                            </div>
                         </div>
                         <div class="form-input">
@@ -621,7 +628,15 @@
                               <label for="contact-email">Email <span class="label-required">(required)</span></label>
                            </div>
                            <div class="form-input-control">
-                              <input type="email" id="contact-email" name="contact-email" required />
+                              <input type="email" id="contact-email" name="contact-email" placeholder="Email Address" required />
+                           </div>
+                        </div>
+                        <div class="form-input">
+                           <div class="form-input-label">
+                              <label for="contact-band-artist-name">Band or Artist Name <span class="label-required">(required)</span></label>
+                           </div>
+                           <div class="form-input-control">
+                              <input type="text" id="contact-band-artist-name" name="band-artist-name" placeholder="Name of the band or artist" required />
                            </div>
                         </div>
                         <div class="form-input">
@@ -629,7 +644,7 @@
                               <label for="contact-message">Message <span class="label-required">(required)</span></label>
                            </div>
                            <div class="form-input-control">
-                              <textarea id="contact-message" name="contact-message" required></textarea>
+                              <textarea id="contact-message" name="contact-message" placeholder="Project details and any other important information" required></textarea>
                            </div>
                         </div>
                         <div class="form-input">
