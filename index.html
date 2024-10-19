@@ -350,6 +350,38 @@
             min-height: var(--content-container-default-min-height);
             background-color: var(--about-section-gradient-color-end);
             background: linear-gradient(to bottom, var(--about-section-gradient-color-start) var(--about-section-gradient-first-color-stop-distance), var(--about-section-gradient-color-end));
+            #about-content {
+               padding: 35px 0;
+               .row {
+                  width: 800px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  .image {
+                     text-align: center;
+                     img {
+                        /* the images will actually be scaled down and use a sourcemap in the final version instead */
+                        width: 400px;
+                        height: 400px;
+                     }
+                     &:hover {
+                        animation-name: desaturate;
+                        animation-duration: var(--desaturate-animation-duration);
+                        animation-timing-function: linear;
+                        animation-iteration-count: 1;
+                        filter: saturate(0);
+                     }
+                  }
+               }
+               .top-margin {
+                  margin-top: 75px;
+               }
+               .smaller-text {
+                  font-size: 0.9em;
+               }
+               .less-wide {
+                  width: 600px;
+               }
+            }
          }
 
          #request-quote {
@@ -612,10 +644,40 @@
             <div class="header">
                <h2>Audio Samples</h2>
             </div>
+            <div class="content">
+
+            </div>
          </div>
          <div id="about" class="content-container">
             <div class="header">
                <h2>About</h2>
+            </div>
+            <div class="content">
+               <div id="about-content">
+                  <div class="row">
+                     <p>
+                        Lorem ipsum odor amet, consectetuer adipiscing elit. Tristique tristique pulvinar mattis vitae commodo dignissim. Porta purus ornare primis risus ullamcorper parturient proin. Sapien quisque hendrerit aliquet non dictum tempor dictum. Accumsan ultrices quis nunc imperdiet donec id odio. Facilisis diam morbi; finibus primis duis ornare eu. Fusce at consequat neque blandit nisl diam aliquam adipiscing rhoncus? Cursus vestibulum accumsan sapien habitasse diam sem.
+                     </p>
+                     <p>
+                        Curabitur quis nisi leo luctus libero leo elit viverra.
+                     </p>
+                  </div>
+                  <div class="row top-margin">
+                     <div class="image">
+                        <img src="img/matthew.jpg" alt="Photo of Matthew Fritz" />
+                     </div>
+                  </div>
+                  <div class="row center-text less-wide">
+                     <div>
+                        <h3>Matthew Fritz - Engineer / Mixer / Artist / Owner</h3>
+                     </div>
+                     <div class="smaller-text">
+                        <p>
+                           Tellus mus vulputate vestibulum enim lobortis. Sem risus sapien lectus ad sagittis placerat ridiculus. Lorem convallis proin fermentum maximus ornare. Praesent litora penatibus ultrices ipsum vitae urna semper? Laoreet enim pellentesque, porttitor euismod sapien non cursus pulvinar. Habitasse ac justo fusce fames ornare. Vulputate nulla neque sociosqu nostra nibh ut consectetur purus eleifend. Per sed curabitur nunc diam semper hac accumsan ornare. Nulla vulputate quisque hac tristique tellus.
+                        </p>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
          <div id="request-quote" class="content-container">
