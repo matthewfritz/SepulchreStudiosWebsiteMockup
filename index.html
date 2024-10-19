@@ -362,13 +362,14 @@
                         /* the images will actually be scaled down and use a sourcemap in the final version instead */
                         width: 400px;
                         height: 400px;
-                     }
-                     &:hover {
-                        animation-name: desaturate;
-                        animation-duration: var(--desaturate-animation-duration);
-                        animation-timing-function: linear;
-                        animation-iteration-count: 1;
-                        filter: saturate(0);
+
+                        &:hover {
+                           animation-name: desaturate;
+                           animation-duration: var(--desaturate-animation-duration);
+                           animation-timing-function: linear;
+                           animation-iteration-count: 1;
+                           filter: saturate(0);
+                        }
                      }
                   }
                }
