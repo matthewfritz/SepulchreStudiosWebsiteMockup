@@ -105,11 +105,19 @@
             --request-quote-section-form-input-margin-top: 20px;
             --request-quote-section-form-input-control-vertical-padding: 5px;
             --request-quote-section-form-input-control-horizontal-padding: 10px;
+            --request-quote-section-form-input-control-font-size: 1em;
+            --request-quote-section-form-input-control-min-height: calc(var(--request-quote-section-form-input-control-font-size) + (2 * var(--request-quote-section-form-input-control-vertical-padding)));
 
             --request-quote-section-form-input-label-text-color-required: rgb(128,0,0);
             --request-quote-section-form-input-label-font-size: 0.8em;
             --request-quote-section-form-input-label-font-size-required: 0.75em;
             --request-quote-section-form-input-label-font-weight: 600;
+
+            --request-quote-section-form-input-control-textarea-padding: calc(var(--request-quote-section-form-input-control-vertical-padding) * 2) var(--request-quote-section-form-input-control-horizontal-padding);
+            --request-quote-section-form-input-control-textarea-line-height-multiplier: 1.25;
+            --request-quote-section-form-input-control-textarea-line-height: calc(var(--request-quote-section-form-input-control-textarea-line-height-multiplier) * 1em);
+            --request-quote-section-form-input-control-textarea-num-rows: 5;
+            --request-quote-section-form-input-control-textarea-min-height: calc(var(--request-quote-section-form-input-control-font-size) * var(--request-quote-section-form-input-control-textarea-line-height-multiplier) * var(--request-quote-section-form-input-control-textarea-num-rows));
 
             --footer-height: 200px;
 
@@ -394,7 +402,9 @@
             .form-input-control {
                input[type='text'], input[type='email'], textarea, select {
                   width: 100%;
+                  min-height: var(--request-quote-section-form-input-control-min-height);
                   font-family: var(--base-font-family);
+                  font-size: var(--request-quote-section-form-input-control-font-size);
                   padding: var(--request-quote-section-form-input-control-vertical-padding) var(--request-quote-section-form-input-control-horizontal-padding);
                   border-radius: 5px;
                   border: 0;
@@ -402,9 +412,6 @@
                      outline: solid 3px var(--background-request-quote-button-background-color);
                      box-shadow: 3px 3px 5px var(--shadow-color);
                   }
-               }
-               input[type='text'], input[type='email'] {
-                  min-height: 25px;
                }
                input[type='submit'] {
                   margin-top: var(--request-quote-section-form-input-margin-top);
@@ -426,12 +433,12 @@
                   }
                }
                select {
-                  min-height: 35px;
                   width: calc(var(--request-quote-section-form-input-width) + (2 * var(--request-quote-section-form-input-control-horizontal-padding)));
                }
                textarea {
-                  padding: calc(var(--request-quote-section-form-input-control-vertical-padding) * 2) var(--request-quote-section-form-input-control-horizontal-padding);
-                  min-height: 100px;
+                  padding: var(--request-quote-section-form-input-control-textarea-padding);
+                  min-height: var(--request-quote-section-form-input-control-textarea-min-height);
+                  line-height: var(--request-quote-section-form-input-control-textarea-line-height);
                }
             }
          }
