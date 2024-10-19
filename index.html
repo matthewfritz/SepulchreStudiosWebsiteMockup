@@ -750,6 +750,19 @@
             }
          });
 
+         // simple smooth scroll-to-target logic to override default behavior when relative target links are clicked
+         document.querySelectorAll("a[href^='#']").forEach((element) => {
+            element.addEventListener("click", (event) => {
+               event.preventDefault();
+
+               const targetElementID = element.getAttribute("href").substring(1);
+               const targetElement = document.getElementById(targetElementID);
+               if (targetElement) {
+                  targetElement.scrollIntoView({ behavior: "smooth" });
+               }
+            });
+         });
+
          function requestQuoteSubmit() {
             // prevent the submit from happening since this is just a visual mock-up
             return false;
