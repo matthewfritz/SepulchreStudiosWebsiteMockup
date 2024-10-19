@@ -99,14 +99,17 @@
             --request-quote-section-gradient-first-color-stop-distance: var(--services-gradient-first-color-stop-distance);
             --request-quote-section-text-color: var(--page-foreground-color-dark);
             --request-quote-section-text-color-hover: var(--page-foreground-color);
-            --request-quote-section-text-color-required: rgb(128,0,0);
-            --request-quote-section-font-size-required: 0.6em;
 
             --request-quote-section-form-width: 800px;
             --request-quote-section-form-input-width: 600px;
             --request-quote-section-form-input-margin-top: 20px;
             --request-quote-section-form-input-control-vertical-padding: 5px;
             --request-quote-section-form-input-control-horizontal-padding: 10px;
+
+            --request-quote-section-form-input-label-text-color-required: rgb(128,0,0);
+            --request-quote-section-form-input-label-font-size: 0.8em;
+            --request-quote-section-form-input-label-font-size-required: 0.75em;
+            --request-quote-section-form-input-label-font-weight: 600;
 
             --footer-height: 200px;
 
@@ -379,10 +382,13 @@
             }
             .form-input-label {
                padding-bottom: calc(var(--request-quote-section-form-input-control-vertical-padding) * 2);
+               font-size: var(--request-quote-section-form-input-label-font-size);
+               font-weight: var(--request-quote-section-form-input-label-font-weight);
                .label-required {
                   margin-left: 4px;
-                  font-size: var(--request-quote-section-font-size-required);
-                  color: var(--request-quote-section-text-color-required);
+                  font-size: var(--request-quote-section-form-input-label-font-size-required);
+                  color: var(--request-quote-section-form-input-label-text-color-required);
+                  font-weight: initial;
                }
             }
             .form-input-control {
